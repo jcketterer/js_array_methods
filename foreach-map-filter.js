@@ -181,7 +181,11 @@ Examples:
     findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
-function findInObj (arr, key, searchValue) {}
+function findInObj (arr, key, searchValue) {
+	return arr.filter(function (val) {
+		return val[key] === searchValue;
+	})[0];
+}
 
 /*
 Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
@@ -192,7 +196,16 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels (str) {}
+function removeVowels (str) {
+	let vowels = 'aeiou';
+	return str
+		.toLowerCase()
+		.split('')
+		.filter(function (val) {
+			return vowels.indexOf(val) === -1;
+		})
+		.join('');
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -202,4 +215,15 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers (arr) {}
+function doubleOddNumbers (arr) {
+	return arr
+		.filter(function (val) {
+			console.log(val);
+			if (val % 2 !== 0) {
+				return val * 2;
+			}
+		})
+		.map(function (val) {
+			return val * 2;
+		});
+}
