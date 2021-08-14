@@ -168,7 +168,11 @@ Examples:
     find([1,2,3,4,5], 10) // undefined
 */
 
-function find (arr, searchValue) {}
+function find (arr, searchValue) {
+	return arr.filter(function (val) {
+		return val === searchValue;
+	})[0];
+}
 
 /*
 Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
